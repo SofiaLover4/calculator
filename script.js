@@ -16,6 +16,7 @@ function divide (num1,num2) {
    return num1 / num2;
 };
 
+// A function that uses those math functions
 function operate (string) {
    const array = string.split(" ");
    const firstNum = +array[0];
