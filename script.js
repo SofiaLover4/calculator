@@ -1,3 +1,24 @@
+let displayValue = "";
+
+const numPadBtns = document.querySelectorAll('.numpad button');
+const operationsBtns = document.querySelectorAll('.operations button'); 
+const results = document.querySelector('.results');
+
+results.textContent = "";
+
+
+numPadBtns.forEach(button => {
+   button.addEventListener('click', e => {
+      results.textContent += e.target.innerText;
+   });
+});
+
+operationsBtns.forEach(button => {
+   button.addEventListener('click', e => {
+      results.textContent += ` ${e.target.innerText} `;
+   });
+});
+
 //Basic Math Functions
 
 function add (num1,num2) {
