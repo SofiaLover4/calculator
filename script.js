@@ -3,6 +3,7 @@ let displayValue = "";
 const numPadBtns = document.querySelectorAll('.numpad button');
 const operationsBtns = document.querySelectorAll('.operations button'); 
 const results = document.querySelector('.results');
+const clearBtn = document.querySelector('.clear');
 
 results.textContent = "";
 
@@ -17,6 +18,10 @@ operationsBtns.forEach(button => {
    button.addEventListener('click', e => {
       results.textContent += ` ${e.target.innerText} `;
    });
+});
+
+clearBtn.addEventListener('click', () => {
+   results.textContent = "";
 });
 
 //Basic Math Functions
