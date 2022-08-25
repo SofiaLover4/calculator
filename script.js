@@ -4,6 +4,7 @@ const numPadBtns = document.querySelectorAll('.numpad button');
 const operationsBtns = document.querySelectorAll('.operations button'); 
 const results = document.querySelector('.results');
 const clearBtn = document.querySelector('.clear');
+const backBtn = document.querySelector('.backspace');
 
 results.textContent = "";
 
@@ -23,6 +24,17 @@ operationsBtns.forEach(button => {
 clearBtn.addEventListener('click', () => {
    results.textContent = "";
 });
+
+backBtn.addEventListener('click', () =>{
+   let screen = results.textContent.split("");
+   if (screen[screen.length - 1] === " ") {
+      screen.splice(screen.length - 3, 3);
+      results.textContent = screen.join("");
+   } else {
+      screen.pop();
+      results.textContent = screen.join("");
+   }
+})
 
 //Basic Math Functions
 
