@@ -3,6 +3,7 @@ let displayValue = "";
 const numPadBtns = document.querySelectorAll('.numpad button');
 const operationsBtns = document.querySelectorAll('.operations button'); 
 const results = document.querySelector('.results');
+const decimalBtn = document.querySelector('.decimal');
 const clearBtn = document.querySelector('.clear');
 const backBtn = document.querySelector('.backspace');
 const equalBtn = document.querySelector('.equals');
@@ -13,16 +14,21 @@ results.textContent = "";
 numPadBtns.forEach(button => {
    button.addEventListener('click', e => {
       results.textContent += e.target.innerText;
+
    });
 });
 
 operationsBtns.forEach(button => {
    button.addEventListener('click', e => {
       results.textContent += ` ${e.target.innerText} `;
+      decimalBtn.addEventListener('click', addDecimal, {once : true});
    });
 });
 
+decimalBtn.addEventListener('click', addDecimal, {once : true});
+
 clearBtn.addEventListener('click', () => {
+   decimalBtn.addEventListener('click', addDecimal, {once : true});
    results.textContent = "";
 });
 
@@ -32,7 +38,8 @@ backBtn.addEventListener('click', () =>{
       screen.splice(screen.length - 3, 3);
       results.textContent = screen.join("");
    } else {
-      screen.pop();
+      let last = screen.pop()
+      if (last === ".") decimalBtn.addEventListener('click', addDecimal, {once : true});
       results.textContent = screen.join("");
    }
 })
@@ -80,6 +87,10 @@ function getOperator (array) {
       }
    });
    return one !== undefined ? one : two;
+}
+
+function addDecimal () {
+   results.textContent += ".";
 }
 
 // A function that uses those math functions
