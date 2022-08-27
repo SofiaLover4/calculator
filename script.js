@@ -39,6 +39,7 @@ backBtn.addEventListener('click', () =>{
 
 equalBtn.addEventListener('click', () => {
    let screen = results.textContent.split(" ");
+   if (screen.length === 1) return results.textContent = screen;
    do {
       let index = screen.indexOf(getOperator(screen));
       let equation = screen.slice(index - 1, index + 2);
