@@ -5,6 +5,7 @@ const operationsBtns = document.querySelectorAll('.operations button');
 const results = document.querySelector('.results');
 const clearBtn = document.querySelector('.clear');
 const backBtn = document.querySelector('.backspace');
+const equalBtn = document.querySelector('.equals');
 
 results.textContent = "";
 
@@ -36,6 +37,18 @@ backBtn.addEventListener('click', () =>{
    }
 })
 
+equalBtn.addEventListener('click', () => {
+   let screen = results.textContent.split(" ");
+   do {
+      let index = screen.indexOf(getOperator(screen));
+      let equation = screen.slice(index - 1, index + 2);
+      if (equation[2] === "") return results.textContent = "Error";
+      let answer = operate(equation);
+      if (answer === Infinity) return results.textContent = "Error";
+      screen.splice(index - 1, 3, answer);
+   } while (screen.length != 1);
+   results.textContent = screen;
+});
 //Basic Math Functions
 
 function add (num1,num2) {
@@ -54,9 +67,23 @@ function divide (num1,num2) {
    return num1 / num2;
 };
 
+function getOperator (array) {
+   let one = array.find(character => {
+      if (character === "*" || character ===  "/") {
+         return true;
+      }
+   });
+   let two = array.find(character => {
+      if(character === "+" || character === "-") {
+         return true;
+      }
+   });
+   return one !== undefined ? one : two;
+}
+
 // A function that uses those math functions
 function operate (string) {
-   const array = string.split(" ");
+   const array = string;
    const firstNum = +array[0];
    const secondNum = +array[2];
    switch (array[1]) {
