@@ -39,6 +39,7 @@ allButtons.forEach(button => {
       button.style.backgroundColor = "rgb(153, 249, 162)";
    });
 });
+
 numPadBtns.forEach(button => {
    button.addEventListener('click', e => {
       results.textContent += e.target.innerText;
