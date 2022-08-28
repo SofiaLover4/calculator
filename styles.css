@@ -88,5 +88,6 @@ button {
 .other button {
    height: 60px;
    width: 80px;
+   background-color: rgb(252, 153, 244);
 }
 
