@@ -23,12 +23,12 @@ button {
    margin-bottom: 30px;
    height: 80px;
    width: 400px;
-   border-style: solid;
    border-radius: 5px;
    background-color: rgb(195, 237, 199);
    display: flex;
    justify-content: flex-start;
    align-items: center;
+   padding-left: 10px;
  }
 
  .results {
