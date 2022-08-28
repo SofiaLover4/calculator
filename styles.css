@@ -1,8 +1,11 @@
  body * {
    box-sizing: border-box;
+}
 
- }
-
+button {
+   border-style: none;
+   border-radius: 10px;
+}
  .calculator {
    height: 600px;
    width: 500px;
@@ -71,6 +74,7 @@
 .numpad button {
    height: 60px;
    width: 75px;
+   background-color: rgb(192, 235, 241);
 }
 
 .other {
