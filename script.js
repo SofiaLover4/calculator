@@ -25,6 +25,20 @@ const equalBtn = document.querySelector('.equals');
 
 results.textContent = "";
 
+allButtons.forEach(button => {
+   button.addEventListener('mouseover', () => {
+      button.style.backgroundColor = "rgb(153, 249, 162)";
+   });
+   button.addEventListener('mouseout', () => {
+      button.style.backgroundColor = "";
+   });
+   button.addEventListener('mousedown', function onMouseDown() {
+      button.style.backgroundColor = "rgb(241, 228, 185)";
+   });
+   button.addEventListener('mouseup', function onMouseUp(){
+      button.style.backgroundColor = "rgb(153, 249, 162)";
+   });
+});
 numPadBtns.forEach(button => {
    button.addEventListener('click', e => {
       results.textContent += e.target.innerText;
