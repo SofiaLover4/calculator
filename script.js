@@ -9,11 +9,12 @@ results.textContent += ` ${e.key} `;
       addDecimal();
    } else if (e.key === "Backspace") {
       backSpace();
-   } else if (e.key === "Enter") {
+   } else if (e.key === "=") {
       equals();
    }  
 });
 
+const allButtons = document.querySelectorAll('button');
 const numPadBtns = document.querySelectorAll('.numpad button');
 const operationsBtns = document.querySelectorAll('.operations button'); 
 const results = document.querySelector('.results');
@@ -24,11 +25,9 @@ const equalBtn = document.querySelector('.equals');
 
 results.textContent = "";
 
-
 numPadBtns.forEach(button => {
    button.addEventListener('click', e => {
       results.textContent += e.target.innerText;
-
    });
 });
 
