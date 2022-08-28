@@ -54,6 +54,7 @@ button {
 
 .operations button {
    width: 60px;
+   background-color: rgb(249, 136, 136);
 }
 
 .stuff{
